@@ -28,6 +28,7 @@ namespace Earth
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             MessageBox.Show("Hello,World");
+            MessageBox.Show("2.0");
             MessageBox.Show("Hello,World2");
             MessageBox.Show("Hello,World3");
         }
