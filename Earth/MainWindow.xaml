@@ -1,13 +1,29 @@
-﻿<Window x:Class="Earth.MainWindow"
+<Window x:Class="Earth.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Earth"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        <Button Content="Button" HorizontalAlignment="Left" Margin="122,196,0,0" VerticalAlignment="Top" Click="Button_Click"/>
+        Title="今日の予定" Height="500" Width="600">
+    <Grid Margin="16">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
 
+        <StackPanel Grid.Row="0" Margin="0,0,0,12">
+            <TextBlock x:Name="TodayLabel" FontSize="22" FontWeight="Bold" Margin="0,0,0,4"/>
+            <TextBlock Text="今日の予定" FontSize="14" Foreground="Gray"/>
+        </StackPanel>
+
+        <ListView Grid.Row="1" x:Name="ScheduleList" FontSize="14">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="時間" Width="100" DisplayMemberBinding="{Binding Time}"/>
+                    <GridViewColumn Header="予定" Width="420" DisplayMemberBinding="{Binding Title}"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
     </Grid>
 </Window>
